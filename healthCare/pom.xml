@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>healthCare</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0-BUILD-SNAPSHOT</version>
+	  <groupId>healthCare</groupId>
+    <name>CareFounderProject</name>
+    <properties>
+<org.springframework.security.version>3.2.4.RELEASE</org.springframework.security.version>
+<springsecurityoauth2.version>2.0.10.RELEASE</springsecurityoauth2.version>
+		<jackson.library>2.7.5</jackson.library>
+		
+		 <project.youtube.version>v3-rev8-1.12.0-beta</project.youtube.version>
+        <project.http.version>1.12.0-beta</project.http.version>
+        <project.oauth.version>1.12.0-beta</project.oauth.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <repositories>
+        <repository>
+            <id>google-api-services</id>
+            <url>http://google-api-client-libraries.appspot.com/mavenrepo</url>
+        </repository>
+    </repositories>
+
+	<dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>4.0.3.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>4.0.3.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>4.0.5.RELEASE</version>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>4.0.3.RELEASE</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>4.0.3.RELEASE</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>1.6.0.RELEASE</version>
+        </dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-rest-webmvc</artifactId>
+                <version>2.1.2.RELEASE</version>
+            </dependency>
+
+        <dependency>
+            <groupId>commons-pool</groupId>
+            <artifactId>commons-pool</artifactId>
+            <version>20030825.183949</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.0.5.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.9.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-oxm</artifactId>
+            <version>1.5.10</version>
+        </dependency>
+
+
+<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+<dependency>
+    <groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+    <version>2.1</version>
+</dependency>
+<dependency>
+    <groupId>commons-codec</groupId>
+    <artifactId>commons-codec</artifactId>
+    <version>1.9</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
+<dependency>
+    <groupId>org.quartz-scheduler</groupId>
+    <artifactId>quartz</artifactId>
+    <version>2.2.1</version>
+</dependency>
+
+
+<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springframework.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${org.springframework.security.version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+   		 <groupId>com.google.guava</groupId>
+    	 <artifactId>guava</artifactId>
+    	 <version>r05</version>
+         </dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+    		<groupId>org.apache.commons</groupId>
+    		<artifactId>commons-lang3</artifactId>
+    		<version>3.0</version>
+		</dependency>
+		<dependency>
+           <groupId>javax.ws.rs</groupId>
+           <artifactId>javax.ws.rs-api</artifactId>
+           <version>2.0</version>
+        </dependency>
+					
+					
+		<!-- Spring Security OAuth2-->
+		<dependency>
+		    <groupId>org.springframework.security.oauth</groupId>
+		    <artifactId>spring-security-oauth2</artifactId>
+		    <version>${springsecurityoauth2.version}</version>
+		</dependency>
+
+		<!-- Jackson libraries 
+		<dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.library}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>${jackson.library}</version>
+        </dependency>
+-->
+<!--
+		<dependency>
+      		<groupId>com.google.apis</groupId>
+      		<artifactId>google-api-services-youtube</artifactId>
+      <version>v3-rev178-1.22.0</version>
+    </dependency>
+    
+     <dependency>
+    	<groupId>com.google.gdata</groupId>
+    	<artifactId>core</artifactId>
+    	<version>1.47.1</version>
+	</dependency>
+    
+     <dependency>
+     <groupId>com.google.api-client</groupId>
+     <artifactId>google-api-client</artifactId>
+     <version>1.22.0</version>
+   </dependency>
+   -->
+
+
+<!-- YouTube Data V3 support -->
+     	<dependency>
+      		<groupId>com.google.apis</groupId>
+      		<artifactId>google-api-services-youtube</artifactId>
+      <version>v3-rev178-1.22.0</version>
+    </dependency>
+  <dependency>
+    	<groupId>com.google.gdata</groupId>
+    	<artifactId>core</artifactId>
+    	<version>1.47.1</version>
+	</dependency>
+    
+     <dependency>
+     <groupId>com.google.api-client</groupId>
+     <artifactId>google-api-client</artifactId>
+     <version>1.22.0</version>
+   </dependency>
+   <!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
+
+   
+   
+    </dependencies>
+	
+	
+	
+	
+	<build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                </configuration>
+            </plugin>
+        </plugins>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+</project>
