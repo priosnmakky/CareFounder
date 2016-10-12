@@ -12,11 +12,20 @@ import org.springframework.stereotype.Service;
 
 import com.care.health.model.Blogger;
 import com.care.health.model.YoutubeVideo;
+import com.care.health.youtube.api.dao.DeleteVideoDao;
+import com.care.health.youtube.api.dao.GetVideoDao;
+import com.care.health.youtube.api.dao.UpdateVideoDao;
 import com.care.health.youtube.api.dao.UploadVideoDao;
 @Service
 public class YoutubeVideoServiceImpl implements YoutubeVideoService{
 	@Autowired
 	UploadVideoDao uploadVideoDao;
+	@Autowired
+	UpdateVideoDao updateVideoDao;
+	@Autowired
+	DeleteVideoDao deleteVideoDao;
+	@Autowired
+	GetVideoDao getVideoDao;
 	public YoutubeVideo createYoutueVideo(String part,YoutubeVideo youtubeVideo) throws IOException {
 		craeteFolder(part);
 		File outputFile = new File(part+youtubeVideo.getId()+".mp4");
@@ -26,20 +35,28 @@ public class YoutubeVideoServiceImpl implements YoutubeVideoService{
 		outputStream.close();
 		youtubeVideo.setByteOrpart(part+youtubeVideo.getId()+".mp4");
 		YoutubeVideo uplodvideo =uploadVideoDao.createVideoYoutube(youtubeVideo);
-		deleteYoutubeVideo(youtubeVideo);
+		deleteVideo(youtubeVideo);
 		
 		return uplodvideo;
 		
 
 	}
-	public void deleteYoutubeVideo(YoutubeVideo youtubeVideo){
+	public YoutubeVideo updateYoutubeVide(YoutubeVideo youtubeVideo){
+		YoutubeVideo  retrunyoutubeVideo=updateVideoDao.updateVideo(youtubeVideo);
+		return retrunyoutubeVideo;
+	}
+	public YoutubeVideo removeYoutubeVideo(YoutubeVideo youtubeVideo){
+		deleteVideoDao.deleteVideo(youtubeVideo);
+		return getVideoDao.getVideo(youtubeVideo);
+	}
+	public void deleteVideo(YoutubeVideo youtubeVideo){
 		File file = new File(youtubeVideo.getByteOrpart());
 
 		if(file.delete()){
-			System.out.println("C:\\Users\\narongrit\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp2\\wtpwebapps\\healthCare\\WEB-INF\\resource\\Video\\Youtube\\"+youtubeVideo.getId()+".mp4");
+			
 				System.out.println(file.getName() + " is deleted!");
 		}else{
-			System.out.println(youtubeVideo.getByteOrpart());
+			
 				System.out.println("Delete operation is failed.");
 			}
 	} 

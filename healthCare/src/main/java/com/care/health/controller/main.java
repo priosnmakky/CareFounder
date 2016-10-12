@@ -61,39 +61,39 @@ public class main {
 		
 //	
 		
-////	new File("C:\\Directory1").mkdir();
-//Path path = Paths.get("src//main//java//com//care//hralth//resource//image//test_makky.mp4");
-//	byte[] data =null;
-//		try {
-//		data = Files.readAllBytes(path);
+//new File("C:\\Directory1").mkdir();
+Path path = Paths.get("src//main//java//com//care//hralth//resource//image//test1.jpg");
+	byte[] data =null;
+		try {
+		data = Files.readAllBytes(path);
 //
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 //	
 //
 //////
-//	String base64Encoded = DatatypeConverter.printBase64Binary(data);
-//	System.out.print(base64Encoded);
+	String base64Encoded = DatatypeConverter.printBase64Binary(data);
+	System.out.print(base64Encoded);
 	
-	try{
-		File file = new File("C://Users//narongrit//workspace//.metadata//.plugins//org.eclipse.wst.server.core//tmp2//wtpwebapps//healthCare//WEB-INF//resource//image//Employee//57fcb9bd14197d9daa5ee291.mp4");
-
-	if(file.delete()){
-		System.out.println(file.getName() + " is deleted!");
-	}else{
-		System.out.println("Delete operation is failed.");
-	}
-
-	}catch(Exception e){
-
-	e.printStackTrace();
-
-}
+//	try{
+//		File file = new File("C://Users//narongrit//workspace//.metadata//.plugins//org.eclipse.wst.server.core//tmp2//wtpwebapps//healthCare//WEB-INF//resource//image//Employee//57fcb9bd14197d9daa5ee291.mp4");
+//
+//	if(file.delete()){
+//		System.out.println(file.getName() + " is deleted!");
+//	}else{
+//		System.out.println("Delete operation is failed.");
+//	}
+//
+//	}catch(Exception e){
+//
+//	e.printStackTrace();
+//
+//}
 	
 		
-//		File theDir = new File("src//main//java//com//care//hralth//resource//image//makky");
+	//	File theDir = new File("src//main//java//com//care//hralth//resource//image//makky");
 //
 //		// if the directory does not exist, create it
 //		if (!theDir.exists()) {

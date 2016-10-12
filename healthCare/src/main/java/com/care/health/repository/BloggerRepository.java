@@ -9,5 +9,5 @@ import com.care.health.model.BloggerTag;
 @Repository
 public interface BloggerRepository extends MongoRepository<Blogger, String>{
 	List<Blogger> findByStatus(int status);
-	List<Blogger> findByTagName(List<BloggerTag> bloggerTags);	
+	List<Blogger> findByTagName(String name);	
 }

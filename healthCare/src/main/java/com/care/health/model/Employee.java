@@ -1,6 +1,7 @@
 package com.care.health.model;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
@@ -11,6 +12,8 @@ public class Employee {
 	@Id
 	String id;
 	String username;
+	BigInteger cityzenId;
+	String fullName;
 	String password;
 	String position;
 	String tel;
@@ -86,6 +89,19 @@ public class Employee {
 	}
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
+	}
+	
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+	public BigInteger getCityzenId() {
+		return cityzenId;
+	}
+	public void setCityzenId(BigInteger cityzenId) {
+		this.cityzenId = cityzenId;
 	}
 	
 	

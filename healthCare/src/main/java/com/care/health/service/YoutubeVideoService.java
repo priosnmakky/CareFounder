@@ -7,4 +7,6 @@ import com.care.health.model.YoutubeVideo;
 
 public interface YoutubeVideoService {
 	public YoutubeVideo createYoutueVideo(String part,YoutubeVideo youtubeVideo)throws IOException  ;
+	public YoutubeVideo updateYoutubeVide(YoutubeVideo youtubeVideo);
+	public YoutubeVideo removeYoutubeVideo(YoutubeVideo youtubeVideo);
 }

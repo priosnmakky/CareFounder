@@ -11,5 +11,5 @@ public interface BloggerTagService {
     public void removeBloggerTag(BloggerTag bloggerTag);
     public List<BloggerTag> getAllBloggerTag();
     public BloggerTag getBloggerTagById(String id);
-
-}
+    public BloggerTag getBloggerTagByName(String name);
+  }

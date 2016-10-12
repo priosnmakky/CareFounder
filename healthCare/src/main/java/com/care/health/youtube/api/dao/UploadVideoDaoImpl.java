@@ -184,6 +184,7 @@ public class UploadVideoDaoImpl implements UploadVideoDao {
             returnYoutubeVideo.setTag(returnedVideo.getSnippet().getTags());
             returnYoutubeVideo.setDescription(returnedVideo.getSnippet().getDescription());
             returnYoutubeVideo.setPrivacyStatus(returnedVideo.getStatus().getPrivacyStatus());
+            returnYoutubeVideo.setViewCount(returnedVideo.getStatistics().getViewCount());
         } catch (GoogleJsonResponseException e) {
             System.err.println("GoogleJsonResponseException code: " + e.getDetails().getCode() + " : "
                     + e.getDetails().getMessage());

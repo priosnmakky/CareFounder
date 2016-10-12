@@ -64,4 +64,18 @@ public class BloggerTagServiceImpl implements BloggerTagService{
 
 	}
 
+	public BloggerTag getBloggerTagByName(String name) {
+		// TODO Auto-generated method stub
+		try{
+			   return  bloggerTagRepository.findByName(name);
+
+		       }catch (Exception e){
+		         return null;
+		        }
+		
+	}
+
+
+	
+
 }

@@ -126,7 +126,6 @@ public class EmployeeController {
 		Employee employee =employeeService.getEmployeeById(id);
 		Employee returnEmployee =  employeeService.removeEmployee(employee);
 		if(null!=returnEmployee&&null!=returnEmployee.getPicture()&&null!=returnEmployee.getPicture().getByteOrpart()){
-			String part = context.getRealPath("")+"WEB-INF\\resource\\image\\Employee\\";
 			imageService.removeImage(returnEmployee.getPicture()); 
 		}
 		
@@ -146,7 +145,6 @@ public class EmployeeController {
 	public Date getCurrentTime(){
 		TimeZone timeZone = TimeZone.getTimeZone("UTC");
 		Calendar calendar = Calendar.getInstance(timeZone);
-		SimpleDateFormat simpleDateFormat =new SimpleDateFormat("EE MMM dd HH:mm:ss zzz yyyy");
 		return calendar.getTime();
 		
 	}

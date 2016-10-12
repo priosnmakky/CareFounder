@@ -16,6 +16,7 @@ public class YoutubeVideo {
 	String description;
 	String privacyStatus;
 	String byteOrpart;
+	BigInteger viewCount;
 	DateTime publishDate;
 	///BigInteger ViewCount;
 
@@ -68,6 +69,13 @@ public class YoutubeVideo {
 	public void setPublishDate(DateTime publishDate) {
 		this.publishDate = publishDate;
 	}
+	public BigInteger getViewCount() {
+		return viewCount;
+	}
+	public void setViewCount(BigInteger viewCount) {
+		this.viewCount = viewCount;
+	}
+	
 	
 	
 	

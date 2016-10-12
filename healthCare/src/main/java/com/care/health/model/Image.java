@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Image {
 	@Id
     private String id;
-	BigDecimal size;
 	String type;
 	String byteOrpart;
 	public String getId() {
@@ -16,12 +15,6 @@ public class Image {
 	}
 	public void setId(String id) {
 		this.id = id;
-	}
-	public BigDecimal getSize() {
-		return size;
-	}
-	public void setSize(BigDecimal size) {
-		this.size = size;
 	}
 	public String getType() {
 		return type;
