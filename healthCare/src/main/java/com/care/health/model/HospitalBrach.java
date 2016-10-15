@@ -17,7 +17,7 @@ public class HospitalBrach {
 	List<Address> address;
 	List<HospitalBrachDetail> hospitalBrachDetails;
 	List<Examination> examinations;
-	String  usernameHos;
+	Hospital hospital;
 	Date createDate;
 	Date updateDate;
 	Integer status;
@@ -57,19 +57,17 @@ public class HospitalBrach {
 	public void setAddress(List<Address> address) {
 		this.address = address;
 	}
-	
-
 	public List<Examination> getExaminations() {
 		return examinations;
 	}
 	public void setExaminations(List<Examination> examinations) {
 		this.examinations = examinations;
 	}
-	public String getUsernameHos() {
-		return usernameHos;
+	public Hospital getHospital() {
+		return hospital;
 	}
-	public void setUsernameHos(String usernameHos) {
-		this.usernameHos = usernameHos;
+	public void setHospital(Hospital hospital) {
+		this.hospital = hospital;
 	}
 	public Date getCreateDate() {
 		return createDate;

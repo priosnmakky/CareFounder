@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/care/health/controller/ExaminationController.java=UTF-8
 encoding//src/main/java/com/care/health/controller/HospitalBrachController.java=UTF-8
 encoding//src/main/java/com/care/health/controller/HospitalController.java=UTF-8
 encoding//src/main/java/com/care/health/youtube/api/dao/DeleteVideoDaoImpl.java=UTF-8

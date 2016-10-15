@@ -34,6 +34,8 @@ public class HospitalBrachController {
 	@Autowired
 	HospitalBrachService hospitalBrachService;
 	@Autowired
+	HospitalService hospitalService;
+	@Autowired
 	HospitalBrachDetailService hospitalBrachDetailService ;
 	@Autowired
     ServletContext context; 
@@ -102,10 +104,28 @@ public class HospitalBrachController {
 	 @RequestMapping(value = "/list",method = RequestMethod.GET)
 	    public @ResponseBody List<HospitalBrach> getAllHospital() throws IOException{
 		 List<HospitalBrach> hospitalBraches = hospitalBrachService.getAllHospitalBrach();
-		
+		for(int i=0;i<hospitalBraches.size();i++){
+			hospitalBraches.get(i).setHospital(hospitalService.getHospitalById(hospitalBraches.get(i).getHospital().getId()));
+			if(null!=hospitalBraches.get(i).getHospitalBrachDetails()){
+			getAllHospitalBrachDetail(hospitalBraches.get(i).getHospitalBrachDetails());
+			}
+		}
 		
 		 return hospitalBraches;
 	 }
+	 @RequestMapping(value = "/get/{id}",method = RequestMethod.POST)
+		public @ResponseBody HospitalBrach getHospitalById(@PathVariable("id") String id) throws IOException{
+		 	HospitalBrach hospitalBrach = hospitalBrachService.getHospitalBrachById(id);
+//		 	 if(null!=hospital.getLogo()&&null!=hospital.getLogo().getByteOrpart()){
+//				 hospital.setLogo(imageService.getImagefile(hospital.getLogo()));
+//			 }
+		 	hospitalBrach.setHospital(hospitalService.getHospitalById(hospitalBrach.getHospital().getId()));
+		 	if(null!=hospitalBrach.getHospitalBrachDetails()){
+		 		getAllHospitalBrachDetail(hospitalBrach.getHospitalBrachDetails());
+			}
+		 	return hospitalBrach;
+		}
+	
 public List<HospitalBrachDetail> addHospitalBrachDetail(List<HospitalBrachDetail> hospitalBrachDetails){
 	Date currentdate = getCurrentTime();
 		for(int i=0;i<hospitalBrachDetails.size();i++){
@@ -173,6 +193,13 @@ public List<HospitalBrachDetail> deleteHospitalBrachDetail(List<HospitalBrachDet
 	for(int i=0;i<hospitalBrachDetails.size();i++){
 	///	hospitalDetails.get(i).setStatus(2);
 		hospitalBrachDetailService.removeHospitalBrachDetail(hospitalBrachDetails.get(i));
+	}
+	return hospitalBrachDetails;
+}
+public List<HospitalBrachDetail> getAllHospitalBrachDetail(List<HospitalBrachDetail> hospitalBrachDetails){
+	for(int i=0;i<hospitalBrachDetails.size();i++){
+		hospitalBrachDetails.set(i,hospitalBrachDetailService.getHospitalBrachDetailById(hospitalBrachDetails.get(i).getId()));
+				
 	}
 	return hospitalBrachDetails;
 }

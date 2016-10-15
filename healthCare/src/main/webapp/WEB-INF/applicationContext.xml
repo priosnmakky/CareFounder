@@ -33,12 +33,13 @@
     <!-- Configures the annotation-driven Spring MVC Controller programming model.
     Note that, with Spring 3.0, this tag works in Servlet MVC only!  -->
 
-    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <!-- <mvc:resources mapping="/" location="/resource/image/**" /> -->
 
 
 
-    <mvc:annotation-driven />
-
+  <mvc:annotation-driven />
+<mvc:resources mapping="/images/**" location="WEB-INF/resources/images/Blogger/" />
+<mvc:resources mapping="/images1/**" location="WEB-INF/resources/images/" />
 
 
     <!--set the mongoDB location-->

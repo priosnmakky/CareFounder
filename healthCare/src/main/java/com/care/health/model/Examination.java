@@ -12,10 +12,10 @@ public class Examination {
 	@Id
 	private String id;
 	String sciName;
-    List<String> examinationId;
+	List<?> examChild;
+	List<?> examParent;
 	List<ExaminationDetail> examinationDetails;
 	BigDecimal price;
-	Integer level;
 	boolean isCheck;
 	String createPerson;
 	Date createDate;
@@ -34,13 +34,6 @@ public class Examination {
 	public void setSciName(String sciName) {
 		this.sciName = sciName;
 	}
-
-	public List<String> getExaminationId() {
-		return examinationId;
-	}
-	public void setExaminationId(List<String> examinationId) {
-		this.examinationId = examinationId;
-	}
 	public List<ExaminationDetail> getExaminationDetails() {
 		return examinationDetails;
 	}
@@ -52,12 +45,6 @@ public class Examination {
 	}
 	public void setPrice(BigDecimal price) {
 		this.price = price;
-	}
-	public Integer getLevel() {
-		return level;
-	}
-	public void setLevel(Integer level) {
-		this.level = level;
 	}
 	public boolean isCheck() {
 		return isCheck;
@@ -94,5 +81,18 @@ public class Examination {
 	}
 	public void setStatus(Integer status) {
 		this.status = status;
-	}	
+	}
+	public List<?> getExamChild() {
+		return examChild;
+	}
+	public void setExamChild(List<?> examChild) {
+		this.examChild = examChild;
+	}
+	public List<?> getExamParent() {
+		return examParent;
+	}
+	public void setExamParent(List<?> examParent) {
+		this.examParent = examParent;
+	}
+
 }

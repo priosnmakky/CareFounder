@@ -136,18 +136,29 @@ public class HospitalController {
 	 @RequestMapping(value = "/list",method = RequestMethod.GET)
 	    public @ResponseBody List<Hospital> getAllHospital() throws IOException{
 		 List<Hospital> hospitals = hospitalService.getAllHospital();
+		 
 		 for(int i=0;i<hospitals.size();i++){
+			 if(null!=hospitals.get(i).getHospitalDetail()){
+			  getAllHospitalDetail(hospitals.get(i).getHospitalDetail());
+			 }
 			 if(null!=hospitals.get(i).getLogo()&&null!=hospitals.get(i).getLogo().getByteOrpart()){
 				 hospitals.get(i).setLogo(imageService.getImagefile(hospitals.get(i).getLogo()));
 			 }
 		}
 		 return hospitals;
 	 }
-	
-//		@RequestMapping(value = "/add",method = RequestMethod.POST)
-//		public @ResponseBody Hospital  throws IOException{
-//			
-//		}
+	 @RequestMapping(value = "/get/{id}",method = RequestMethod.POST)
+		public @ResponseBody Hospital getHospitalById(@PathVariable("id") String id) throws IOException{
+		 	Hospital hospital = hospitalService.getHospitalById(id);
+		 	 if(null!=hospital.getLogo()&&null!=hospital.getLogo().getByteOrpart()){
+				 hospital.setLogo(imageService.getImagefile(hospital.getLogo()));
+			 }
+		 	if(null!=hospital.getHospitalDetail()){
+				  getAllHospitalDetail(hospital.getHospitalDetail());
+			}
+		 	return hospital;
+		}
+	 
 	public List<HospitalDetail> addHospitalDetail(List<HospitalDetail> hospitalDetails){
 		Date currentdate = getCurrentTime();
 			for(int i=0;i<hospitalDetails.size();i++){

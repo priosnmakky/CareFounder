@@ -1,7 +1,11 @@
 package com.care.health.model;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection="ExaminationDetail")
 public class ExaminationDetail {
@@ -10,6 +14,8 @@ public class ExaminationDetail {
 	String name;
 	String detail;
 	Integer word;
+	Date createDate;
+	Date updateDate;
 	public String getId() {
 		return id;
 	}
@@ -34,6 +40,19 @@ public class ExaminationDetail {
 	public void setWord(Integer word) {
 		this.word = word;
 	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
 	
 	
 }

@@ -24,6 +24,7 @@ import javax.xml.bind.DatatypeConverter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.care.health.model.Examination;
 import com.care.health.model.HospitalDetail;
 import com.care.health.model.Image;
 
@@ -62,21 +63,28 @@ public class main {
 //	
 		
 //new File("C:\\Directory1").mkdir();
-Path path = Paths.get("src//main//java//com//care//hralth//resource//image//test1.jpg");
-	byte[] data =null;
-		try {
-		data = Files.readAllBytes(path);
+//Path path = Paths.get("src//main//java//com//care//hralth//resource//image//test1.jpg");
+//	byte[] data =null;
+//		try {
+//		data = Files.readAllBytes(path);
+////
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+////	
+////
+//////////
+//	String base64Encoded = DatatypeConverter.printBase64Binary(data);
+//	System.out.print(base64Encoded);
 //
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-//	
-//
-//////
-	String base64Encoded = DatatypeConverter.printBase64Binary(data);
-	System.out.print(base64Encoded);
-	
+		
+		
+//		File theDir = new File("C:\\Users\\narongrit\\workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\healthCare\\WEB-INF\\resource\\image\\makky\\m");
+//		if (!theDir.exists()) {
+//		    System.out.println("creating directory: " );
+//		    theDir.mkdir();
+//		   }
 //	try{
 //		File file = new File("C://Users//narongrit//workspace//.metadata//.plugins//org.eclipse.wst.server.core//tmp2//wtpwebapps//healthCare//WEB-INF//resource//image//Employee//57fcb9bd14197d9daa5ee291.mp4");
 //
@@ -249,7 +257,37 @@ Path path = Paths.get("src//main//java//com//care//hralth//resource//image//test
 //		i = i+1;
 //
 //		
-//		
+//		]
+	
+		
+		
+		
+		
 	}
 //		}
+	int side=0;
+	List<Examination> examinations = new ArrayList<Examination>();
+	public void getTravelSal(Examination examination){
+		///List<Examination> examinations = new ArrayList<Examination>();
+	    Examination examination2 =	FirstTravelSal(examination);
+		System.out.println(examination2.getSciName());
+	    if(null!=examinations.get(examinations.size()-1)){
+	    	FirstTravelSal(examinations.get(examinations.size()-1));
+	    }
+	
+	}
+	
+	
+	public Examination FirstTravelSal(Examination examination){
+		if(examination!=null){
+			
+			examinations.add(examination);
+			return this.FirstTravelSal((Examination)examination.getExamChild().get(0));
+		}
+		else{
+			examinations.add(examination);
+			return examination;
+		}
+		
+	}
 }

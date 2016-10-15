@@ -76,7 +76,7 @@ public class BloggerController {
 		Image image = new Image();
 		image.setId("ID-01");
 		///image.setName("makky")
-		;		image.setType("sadada");
+		image.setType("sadada");
 		image.setByteOrpart("cdzxczczxcz");
 		Image image1 = new Image();
 		image1.setId("id-02");
@@ -113,13 +113,14 @@ public class BloggerController {
 		blogger.setStatus(1);
 		blogger.setCreateDate(getCurrentTime());
 		blogger.setViewCount(0);
+		///blogger.setImages(null);
 		if(null!=blogger.getTag()){
 			blogger.setTag(addTag(blogger.getTag()));
 		}
 		///blogger.getYoutubeVideo().setByteOrpart(test);
 		if(blogger.getType()==1||blogger.getType()==2){	
 			if(null!=blogger.getImages()&&null!=blogger.getImages().getByteOrpart()){
-				String part = context.getRealPath("")+"WEB-INF\\resource\\image\\Blogger\\";
+				String part = context.getRealPath("")+"WEB-INF\\resources\\images\\Blogger\\";
 				System.out.println(part);
 				Image image = blogger.getImages();
 				blogger.setImages(null);
@@ -133,12 +134,14 @@ public class BloggerController {
 			}
 			else{
 				System.out.println("vcvcv2");
+				blogger.setImages(null);
 				return bloggerService.updateBlogger(blogger);
 			}
 			
 		}
 		if(blogger.getType()==3){
 			if(null!=blogger.getYoutubeVideo()&&null!=blogger.getYoutubeVideo().getByteOrpart()){
+				blogger.setImages(null);
 				String part = context.getRealPath("")+"WEB-INF\\resource\\Video\\Youtube\\";
 				YoutubeVideo youtubeVideo = blogger.getYoutubeVideo();
 				blogger.setYoutubeVideo(null);
@@ -183,6 +186,7 @@ public class BloggerController {
 				
 			}
 			else{
+				blogger.setImages(null);
 				return bloggerService.updateBlogger(blogger);
 				
 			}
@@ -190,6 +194,7 @@ public class BloggerController {
 
 		}
 		else if(blogger.getType()==3){
+			    blogger.setImages(null);
 				YoutubeVideo youtubeVideo = youtubeVideoService.updateYoutubeVide(blogger.getYoutubeVideo());
 				blogger.setYoutubeVideo(youtubeVideo);
 				return bloggerService.updateBlogger(blogger);
@@ -224,6 +229,7 @@ public class BloggerController {
 		 for(int i=0;i<bloggers.size();i++){
 			 List<BloggerTag> tags = new ArrayList<BloggerTag>();
 			 if(bloggers.get(i).getType()==1||bloggers.get(i).getType()==2){
+				 if(null!=bloggers.get(i).getImages())
 				 bloggers.get(i).setImages(imageService.getImagefile(bloggers.get(i).getImages()));
 			 }
 			 if(null!=bloggers.get(i).getTag()){
@@ -239,12 +245,21 @@ public class BloggerController {
 	    }
 
 	 
-	 @RequestMapping(value = "/Blogger/tag/{id}",method = RequestMethod.POST)
+	 @RequestMapping(value = "/tag/{id}",method = RequestMethod.POST)
 	    public @ResponseBody List<Blogger> getBloggerFromTag(@PathVariable("id") String id) throws IOException{
 		 return bloggerService.getBloggerByTagName(bloggerTagService.getBloggerTagById(id).getName());
 
 	    }
+	 
+	 @RequestMapping(value = "/viewCount/{id}",method = RequestMethod.POST)
+	    public @ResponseBody Blogger addViewCount(@PathVariable("id") String id) throws IOException{
+		 Blogger blogger = bloggerService.getBloggerById(id);
+		 blogger.setViewCount(blogger.getViewCount()+1);
+		 System.out.println(blogger.getViewCount());
+		 bloggerService.updateBlogger(blogger);
+		 return blogger;
 
+	    }
 	 public List<BloggerTag> addTag(List<BloggerTag> bloggerTags){
 		 Date current = getCurrentTime();
 		 for(int i=0;i<bloggerTags.size();i++){
